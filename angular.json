@@ -27,9 +27,13 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/font-awesome/css/font-awesome.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -68,7 +72,8 @@
               "buildTarget": "goal-planner:build:production"
             },
             "development": {
-              "buildTarget": "goal-planner:build:development"
+              "buildTarget": "goal-planner:build:development",
+              "port":4209
             }
           },
           "defaultConfiguration": "development"

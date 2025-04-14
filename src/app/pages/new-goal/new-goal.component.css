@@ -1,0 +1,12 @@
+label{
+    font-size: medium;
+    font-weight: 600;
+}
+small {
+    font-weight: 600;
+}
+
+#milestoneContainer{
+    height: 320px;
+    overflow-y: auto;
+}

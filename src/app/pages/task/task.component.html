@@ -1,0 +1,40 @@
+<div class="container">
+    <h4 class="mt-4">My Tasks</h4><hr>
+    <div class="row mt-4">
+        <div class="col-10">
+            <div class="row">
+                @for (task of taskList$ | async; track $index) {
+                 <div class="col-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-header bg-success text-white">
+                            <h4>{{task.taskName}}</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="date-text text-danger">End Date</div><div class="date-text text-danger mx-2">{{task.dueDate | date:'dd-MM-yyyy'}}</div>
+                            <div>
+                                <span><b>Task Frequency</b>&nbsp;&nbsp;</span><span>{{task.frequency}}</span>
+                            </div>
+                            <div>
+                                <span><b>Status&nbsp;&nbsp;</b></span>
+                                @if(task.isCompleted){
+                                    <span>Completed</span>
+                                }@else{
+                                    <span>In Progress</span>
+                                }
+                            </div>
+                            <div class="mt-3">
+                                <button type="button" class="btn btn-warning"  (click)="updateTask(task.taskId)">Update</button>
+                                <button type="button" class="btn btn-danger mx-2"  (click)="deleteTask(task.taskId)">Delete</button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div> 
+                }
+            </div>
+        </div>
+        <div class="col-2">
+            <button type="button" class="btn btn-primary btn-md" (click)="createNewTask()">Create Task</button>
+        </div>
+    </div>
+</div>

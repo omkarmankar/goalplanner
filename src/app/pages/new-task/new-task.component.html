@@ -1,0 +1,58 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-8 mb-3">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h4>Create Task</h4>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="taskForm">
+                        <div class="row">
+                            <div class=" mb-3">
+                                <label for="taskName">Task Name <sup>*</sup></label>
+                                <input type="text" class="form-control" formControlName="taskName" id="taskName"
+                                    placeholder="Enter Task name" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class=" mb-3">
+                                <label for="description">Task Description <sup>*</sup></label>
+                                <textarea type="text" class="form-control" formControlName="description" id="description"
+                                    placeholder="Enter Task Description" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 mb-3">
+                                <label for="frequency">Task Frequency <sup>*</sup></label>
+                                <select  class="form-select" formControlName="frequency" id="frequency"
+                                    required>
+                                    <option value="">Select Frequency</option>
+                                    <option value="Daily">Daily</option>
+                                    <option value="Weekly">Weekly</option>
+                                    <option value="Monthly">Monthly</option>
+                                </select>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label for="startDate">Start Date <sup>*</sup></label>
+                                <input type="date" class="form-control" formControlName="startDate" id="startDate"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 mb-3">
+                                <label for="dueDate">Due Date <sup>*</sup></label>
+                                <input type="date" class="form-control" formControlName="dueDate" id="dueDate"
+                                    required>
+                            </div>
+                        </div>
+                        @if(!taskId){
+                            <button type="button" class="btn btn-primary" [disabled]="taskForm.invalid" (click)="saveTask()">Save Task</button>
+                        }@else{
+                            <button type="button" class="btn btn-warning" [disabled]="taskForm.invalid" (click)="updateTask()">Update Task</button>
+                        }
+                        <button type="button" class="btn btn-danger mx-2"  (click)="resetForm()">Cancel</button>
+                    </form>
+                </div>
+        </div>
+    </div>
+</div>
