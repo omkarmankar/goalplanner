@@ -65,7 +65,7 @@ export class NewTaskComponent implements OnInit {
   saveTask(){
     this.taskService.createTask(this.taskForm.value).subscribe((res:Task) =>{
       if(res){
-        alert("Task Added")
+        this.taskForm.resetForm();
       }
     },
     error => {
